@@ -15,6 +15,7 @@ class Band < ActiveRecord::Base
     class_name: 'Album',
     foreign_key: :band_id,
     primary_key: :id
+    dependent: :destroy
 
   has_many :tracks,
     through: :albums,
