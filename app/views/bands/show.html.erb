@@ -1,0 +1,8 @@
+<% @band = Band.find_by(id: params[:id]) %>
+<h2> <%= @band.name %></h2>
+
+<% Band.find_by(id: params[:id]).albums.each do |album| %>
+  <li>album.name</li>
+<% end %>
+
+<li><%= button_to "Edit band", edit_band_url(@band), method: :get %></li>

@@ -1,0 +1,5 @@
+<h2> <%= Album.find_by(id: params[:id]).name %></h2>
+
+<% Track.all.where(album_id: params[:id]).each do |track| %>
+  <li>track.title</li>
+<% end %>

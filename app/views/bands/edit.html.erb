@@ -1,0 +1,10 @@
+<% @band = Band.find_by(id: params[:id]) %>
+<h2>Edit "<%= @band.name %>"!</h2>
+<form action="<%= band_url(@band) %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+  <label for="band_name">New band name:</label>
+  <br>
+  <input type="text" for="band_name" name="band[name]" value="">
+  <br>
+  <input type="submit" value="Update">
+</form>
