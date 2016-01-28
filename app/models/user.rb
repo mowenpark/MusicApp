@@ -1,10 +1,22 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  email           :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
-  after_initialize :reset_session_token!
+  before_save :reset_session_token!
 
   def reset_session_token!
     self.session_token = SecureRandom.urlsafe_base64
-    save!
+    self.session_token
   end
 
   def password=(password)
