@@ -1,0 +1,11 @@
+
+<h2>Create your album!</h2>
+<form action="<%= albums_url %>" method="POST">
+
+  <input type="hidden" for="bandID" name="album[band_id]" value="<%=  params[:band_id]%>">
+  <label for="album_name">Enter an album name:</label>
+  <br>
+  <input type="text" for="album_name" name="album[name]" value="">
+  <br>
+  <input type="submit" value="Create">
+</form>

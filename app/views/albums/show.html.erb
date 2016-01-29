@@ -1,5 +1,15 @@
-<h2> <%= Album.find_by(id: params[:id]).name %></h2>
+<% @album = Album.find_by(id: params[:id])%>
+<h2><%= @album.name %></h2>
 
-<% Track.all.where(album_id: params[:id]).each do |track| %>
-  <li>track.title</li>
+<% @album.tracks.each do |track| %>
+  <li><a href="<%= track_url(track) %>"><%= track.title %></a></li>
 <% end %>
+<%= button_to "Add track", new_album_track_url(@album), method: :get %>
+<br>
+<br>
+<%= button_to "Edit album", edit_album_url(@album), method: :get %>
+<%= button_to "Delete album", album_url(@album), method: :delete %>
+
+<br>
+<br>
+<%= button_to "Back to Band", band_url(@album.band_id), method: :get %>

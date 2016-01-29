@@ -1,0 +1,10 @@
+<% @track = Track.find_by(id: params[:id]) %>
+<h2>Edit "<%= @track.title %>"!</h2>
+<form action="<%= track_url(@track) %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+  <label for="album_name">New track name:</label>
+  <br>
+  <input type="text" for="album_name" name="track[title]" value="">
+  <br>
+  <input type="submit" value="Update">
+</form>

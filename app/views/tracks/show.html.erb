@@ -1,0 +1,14 @@
+<% @track = Track.find_by(id: params[:id])%>
+<h2><%= @track.title %></h2>
+<br>
+<% @track.notes.each do |note| %>
+  <li><a href="<%= track_url(track) %>"><%= track.title %></a></li>
+<% end %>
+<br>
+<br>
+<%= button_to "Edit track", edit_track_url(@track), method: :get %>
+<%= button_to "Delete track", track_url(@track), method: :delete %>
+
+<br>
+<br>
+<%= button_to "Back to Album", album_url(@track.album_id), method: :get %>

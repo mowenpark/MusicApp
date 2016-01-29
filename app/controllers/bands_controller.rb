@@ -30,6 +30,13 @@ class BandsController < ApplicationController
   end
 
   def destroy
+    @band = Band.find(params[:id])
+    if @band.destroy
+      # flash.notice = "Band: '#{@band.name}' Updated!"
+      redirect_to bands_url
+    else
+      raise "hell"
+    end
   end
 
   def band_params

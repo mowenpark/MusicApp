@@ -11,6 +11,7 @@
 #
 
 class UsersController < ApplicationController
+  skip_before_filter :logged_in?, only: [:new, :create]
 
   def index
     render :index

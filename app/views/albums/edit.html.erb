@@ -1,0 +1,10 @@
+<% @album = Album.find_by(id: params[:id]) %>
+<h2>Edit "<%= @album.name %>"!</h2>
+<form action="<%= album_url(@album) %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+  <label for="album_name">New album name:</label>
+  <br>
+  <input type="text" for="album_name" name="album[name]" value="">
+  <br>
+  <input type="submit" value="Update">
+</form>
